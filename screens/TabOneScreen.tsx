@@ -1,37 +1,42 @@
-import { Link } from '@react-navigation/native';
-import { StyleSheet } from 'react-native';
+import styled from "@emotion/native";
+import { Link } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import EditScreenInfo from "../components/EditScreenInfo";
+import { Text, View } from "../components/Themed";
+import Colors from "../constants/Colors";
+import { RootTabScreenProps } from "../types";
 
-import {} from 'expo'
+const Container = styled.View`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: 'row';
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+`;
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
-  
+const Card = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 200px;
+  border-radius: 20px;
+  background-color: #f4ef;
+`;
+
+export default function TabOneScreen({
+  navigation,
+}: RootTabScreenProps<"TabOne">) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Link to='/NotFound'>notfound</Link>
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
-    </View>
+    <Container>
+      <Card>
+        <Text>123</Text>
+      </Card>
+      <Card>
+        <Text>123</Text>
+      </Card>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
